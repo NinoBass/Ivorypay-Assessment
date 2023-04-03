@@ -11,6 +11,7 @@ environment:
 dependencies:
   animate_do: ^3.0.2
   bip39: ^1.0.6
+  chart_sparkline: ^1.0.13
   clock: ^1.1.1
   cupertino_icons: ^1.0.2
   dio: ^5.1.1

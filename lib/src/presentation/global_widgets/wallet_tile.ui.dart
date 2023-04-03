@@ -1,3 +1,4 @@
+import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -53,6 +54,20 @@ class WalletTileUi extends StatelessWidget {
                 ],
               ),
             ),
+            const Gap(12),
+            Expanded(
+              child: SizedBox(
+                height: 56.w,
+                child: Sparkline(
+                  data: wallet.asset?.sparklineIn7D?.price ?? [],
+                  lineColor:
+                      wallet.asset?.isPositivePriceChangepercentage ?? false
+                          ? success600
+                          : error600,
+                ),
+              ),
+            ),
+            const Gap(24),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [

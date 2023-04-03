@@ -38,9 +38,19 @@ class WalletDetailsUi extends GetView<WalletDetailsController> {
                     hasScrollBody: false,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: const [
-                        Gap(32),
-                        Gap(16),
+                      children: [
+                        const Gap(32),
+                        Container(
+                          padding: const EdgeInsets.all(8).r,
+                          margin: const EdgeInsets.only(bottom: 24).r,
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.all(
+                              smallRadius,
+                            ),
+                            color: primary600.withOpacity(.1),
+                          ),
+                        ),
+                        const Gap(16),
                       ],
                     ),
                   ),

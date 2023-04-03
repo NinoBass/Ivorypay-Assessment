@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ivorypay/src/modules/dashboard/overview/controller/overview.controller.dart';
-import 'package:ivorypay/src/modules/dashboard/overview/presentation/widgets/box.dart';
 import 'package:ivorypay/src/modules/dashboard/overview/presentation/widgets/header.ui.dart';
 import 'package:ivorypay/src/modules/dashboard/overview/presentation/widgets/quick_actions_section.ui.dart';
 import 'package:ivorypay/src/presentation/resources/res.dart';
@@ -77,23 +76,6 @@ class OverviewUi extends GetView<OverviewController> {
                                       '0.00',
                                       fontWeight: mediumText,
                                     ),
-                                    // const Gap(8),
-                                    // Container(
-                                    //   height: 20.w,
-                                    //   width: 20.w,
-                                    //   alignment: Alignment.center,
-                                    //   padding: const EdgeInsets.all(2).r,
-                                    //   decoration: BoxDecoration(
-                                    //     shape: BoxShape.circle,
-                                    //     border: Border.all(
-                                    //       color: grayScale50,
-                                    //     ),
-                                    //   ),
-                                    //   child: SvgPicture.asset(
-                                    //     eyeIcon,
-                                    //     color: grayScale50,
-                                    //   ),
-                                    // ),
                                   ],
                                 ),
                                 const Gap(8),
@@ -187,13 +169,6 @@ class OverviewUi extends GetView<OverviewController> {
                           ),
                           const Gap(36),
                           const QuickActionsSectionUi(),
-                          const Gap(36),
-                          const LighBox(
-                            backgroundImage: 'assets/png/box.png',
-                            image: 'assets/png/rocket.png',
-                            heading: 'P2P Trading',
-                            subHeading: 'Bank Transfer, Paypal',
-                          ),
                           const Gap(36),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
