@@ -14,8 +14,10 @@ class EmptyTransactionsStateUi extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SvgPicture.asset(
-          emptyWalletsImage,
+          emptyTransactionsImage,
+          width: 200,
         ),
+        const Gap(24),
         const TextUi.body1(
           'No transaction yet🥲',
           fontWeight: mediumText,
@@ -26,11 +28,7 @@ class EmptyTransactionsStateUi extends StatelessWidget {
           "Once you send or receive assets, you'll see them here.",
           textAlign: TextAlign.center,
         ),
-        const Gap(36),
-        PrimaryButtonUi(
-          text: 'Create Wallet',
-          onPressed: () {},
-        ),
+        const Gap(60),
       ],
     );
   }

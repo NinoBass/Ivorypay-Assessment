@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ivorypay/src/modules/dashboard/transactions/controller/transactions.controller.dart';
+import 'package:ivorypay/src/modules/dashboard/transactions/presentation/widgets/transactions_filter.ui.dart';
 import 'package:ivorypay/src/presentation/resources/res.dart';
 import 'package:ivorypay/src/presentation/widgets.dart';
 
@@ -29,6 +30,9 @@ class TransactionsHeaderUi extends GetView<TransactionsController> {
             'Keep track of your payments',
             color: grayScale200,
           ),
+          Gap(16),
+          TransactionsFilter(),
+          Gap(16),
         ],
       ),
     );
