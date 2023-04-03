@@ -19,14 +19,14 @@ class SkeletonContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: grayScale50,
-      highlightColor: grayScale50.withOpacity(.2),
+      baseColor: grayScale700,
+      highlightColor: grayScale50.withOpacity(.6),
       period: const Duration(seconds: 2),
       child: Container(
         height: height,
         width: width,
         decoration: BoxDecoration(
-          color: grayScale50,
+          color: grayScale700,
           shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
           borderRadius: isCircle
               ? null

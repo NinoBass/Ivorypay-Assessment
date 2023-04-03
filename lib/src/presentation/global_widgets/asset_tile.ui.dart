@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ivorypay/src/data/dto/dto.dart';
 import 'package:ivorypay/src/domain/services/navigation.services.dart';
@@ -33,10 +32,8 @@ class AssetsTileUi extends StatelessWidget {
         ),
         child: Row(
           children: [
-            SvgPicture.asset(
-              usdcIcon,
-              height: 40.w,
-              width: 40.w,
+            NetworkImageUi(
+              imageUrl: asset.image ?? '',
             ),
             const Gap(12),
             Expanded(
