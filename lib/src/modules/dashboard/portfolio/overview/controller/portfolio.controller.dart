@@ -9,7 +9,7 @@ import 'package:ivorypay/src/data/enums/view_state.enum.dart';
 import 'package:ivorypay/src/domain/repositories/wallet/wallet.repository.dart';
 import 'package:ivorypay/src/domain/services/wallet.service.dart';
 import 'package:ivorypay/src/domain/utilities/controller_interface.util.dart';
-import 'package:ivorypay/src/modules/dashboard/overview/presentation/widgets/select_assets_modal.ui.dart';
+import 'package:ivorypay/src/modules/dashboard/portfolio/overview/presentation/widgets/select_assets_modal.ui.dart';
 
 class PortfolioController extends BaseController {
   @override
