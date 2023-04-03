@@ -1,0 +1,18 @@
+flutter_native_splash:
+  # Customize the parameters below, and run the following command in the terminal:
+  # flutter pub run flutter_native_splash:create
+  # To restore Flutter's default white splash screen, run the following command in the terminal:
+  # flutter pub run flutter_native_splash:remove
+
+  color: "#FFFFFF"
+  image: assets/png/ivory_logo.png
+
+  # These params set the background and image when the device is in dark mode.
+  color_dark: "#000000"
+  image_dark: assets/png/ivory_logo.png
+
+  # The android, ios and web parameters can be used to disable generating a splash screen on a given
+  # platform.
+  android: true
+  ios: true
+  web: false
