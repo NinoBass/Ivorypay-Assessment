@@ -15,7 +15,7 @@ class PortfolioController extends BaseController {
   @override
   void onInit() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      wallets.value = keyValueStorageService.getWalletData() ?? [];
+      getWalletDetails();
       getAssetsData();
     });
 
@@ -68,6 +68,25 @@ class PortfolioController extends BaseController {
       }
 
       this.assets.value = assets;
+      viewState = ViewState.idle;
+    } catch (e, s) {
+      viewState = ViewState.idle;
+      log(
+        e.toString(),
+        stackTrace: s,
+      );
+    }
+  }
+
+  Future<void> getWalletDetails() async {
+    try {
+      viewState = ViewState.busy;
+      wallets.value = keyValueStorageService.getWalletData() ?? [];
+
+      //get balance for each item in the wallets list
+      if (wallets.isNotEmpty) {
+        //we can get balance here
+      }
       viewState = ViewState.idle;
     } catch (e, s) {
       viewState = ViewState.idle;

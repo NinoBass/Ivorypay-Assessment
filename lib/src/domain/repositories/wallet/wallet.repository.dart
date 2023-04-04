@@ -46,4 +46,33 @@ class WalletRepository {
       },
     );
   }
+
+  Future<List<AssetDto>> fetchWalletBalance({
+    required String walletAddress,
+  }) async {
+    return _apiService.sendData<List<AssetDto>>(
+      endpoint: 'https://eth.nownodes.io',
+      headers: {
+        'api-key': '01b1bdad-6a1e-4a2a-a378-5ceb1c5d7cba',
+        'user-agent': Platform.operatingSystem,
+      },
+      data: {
+        'jsonrpc': '2.0',
+        'method': 'eth_getBalance',
+        'params': [
+          walletAddress,
+          'latest',
+        ],
+        'id': 1
+      },
+      converter: (res) {
+        final assetsData = jsonDecode(res.toString()) as List<dynamic>;
+        return List<AssetDto>.from(
+          assetsData.map(
+            (x) => AssetDto.fromJson(x as JSON),
+          ),
+        );
+      },
+    );
+  }
 }
