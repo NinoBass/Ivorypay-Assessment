@@ -4,28 +4,32 @@ import 'package:ivorypay/src/domain/utilities/typedefs.dart';
 class WalletDto {
   WalletDto({
     required this.privateKey,
-    required this.publicKey,
+    required this.address,
     required this.asset,
-    this.balance = 0,
+    this.cryptoBalance = 0,
+    this.fiatBalance = 0,
   });
 
   factory WalletDto.fromJson(Map<String, dynamic> json) => WalletDto(
         asset: json['asset'] == null
             ? null
             : AssetDto.fromJson(json['asset'] as JSON),
-        publicKey: json['publicKey'] as String? ?? '',
+        address: json['address'] as String? ?? '',
         privateKey: json['privateKey'] as String? ?? '',
-        balance: json['balance'] as double? ?? 0,
+        cryptoBalance: json['cryptoBalance'] as double? ?? 0,
+        fiatBalance: json['fiatBalance'] as double? ?? 0,
       );
   String privateKey;
-  String publicKey;
+  String address;
   AssetDto? asset;
-  double balance;
+  double cryptoBalance;
+  double fiatBalance;
 
   Map<String, dynamic> toJson() => {
         'asset': asset?.toJson(),
         'privateKey': privateKey,
-        'publicKey': publicKey,
-        'balance': balance,
+        'address': address,
+        'cryptoBalance': cryptoBalance,
+        'fiatBalance': fiatBalance,
       };
 }

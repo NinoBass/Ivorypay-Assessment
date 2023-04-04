@@ -78,7 +78,7 @@ class WalletTileUi extends StatelessWidget {
                       size: 15,
                     ).paddingOnly(top: 2),
                     TextUi.body1(
-                      wallet.balance.toString(),
+                      wallet.fiatBalance.toString(),
                       fontWeight: mediumText,
                       textAlign: TextAlign.right,
                     ),

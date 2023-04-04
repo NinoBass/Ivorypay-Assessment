@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ivorypay/src/modules/dashboard/portfolio/wallet_details/controller/wallet_details.controller.dart';
 import 'package:ivorypay/src/presentation/resources/res.dart';
@@ -33,105 +32,104 @@ class WalletDetailsUi extends GetView<WalletDetailsController> {
                 parent: AlwaysScrollableScrollPhysics(),
               ),
               slivers: [
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const Gap(8),
-                      Container(
-                        margin: baseViewPadding.w,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 20,
-                        ).r,
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(
-                            smallRadius,
+                SliverPadding(
+                  padding: baseViewPadding.w,
+                  sliver: SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Gap(16),
+                        Container(
+                          padding: const EdgeInsets.all(16).r,
+                          decoration: BoxDecoration(
+                            color: primary600.withOpacity(.2),
+                            borderRadius: const BorderRadius.all(
+                              smallRadius,
+                            ),
                           ),
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color(0xFF5c369b),
-                              Color(0xFF2c3489),
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                          ),
-                          boxShadow: <BoxShadow>[
-                            BoxShadow(
-                              color: black.withOpacity(.1),
-                              blurRadius: 4,
-                              offset: const Offset(0, 1),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const TextUi.caption(
-                              'Total available balance',
-                              color: grayScale200,
-                              fontWeight: mediumText,
-                            ),
-                            const Gap(4),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                NairaIconUi(
-                                  size: 20,
-                                ),
-                                TextUi.title2(
-                                  '0.00',
-                                  fontWeight: mediumText,
-                                ),
-                              ],
-                            ),
-                            const Gap(8),
-                            GestureDetector(
-                              behavior: HitTestBehavior.translucent,
-                              onTap: () {
-                                //show dropdown
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                  vertical: 4,
-                                ).r,
-                                decoration: ShapeDecoration(
-                                  color: grayScale50.withOpacity(.1),
-                                  shape: const StadiumBorder(),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SvgPicture.asset(
-                                      nigerianFlagIcon,
-                                      height: 12.w,
-                                      width: 24.w,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.all(4).r,
+                                    decoration: const BoxDecoration(
+                                      color: grayScale50,
+                                      borderRadius: BorderRadius.all(
+                                        smallRadius,
+                                      ),
                                     ),
-                                    const Gap(4),
-                                    TextUi.caption(
-                                      'NGN',
-                                      color: black,
-                                      fontWeight: mediumText,
-                                      height: (16 / 12).w,
+                                    child: NetworkImageUi(
+                                      size: 32,
+                                      imageUrl:
+                                          controller.wallet?.asset?.image ?? '',
                                     ),
-                                    Icon(
-                                      Icons.keyboard_arrow_down_rounded,
-                                      size: 16.w,
-                                      color: secondary600,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  const Gap(12),
+                                  TextUi.body1(
+                                    controller.wallet?.asset?.name ?? '',
+                                    fontWeight: mediumText,
+                                  ),
+                                  const Spacer(),
+                                  TextUi.body2(
+                                    '${controller.wallet?.asset?.priceChangePercentage24H?.toStringAsPrecision(3)}%',
+                                    fontWeight: mediumText,
+                                    color: controller.wallet?.asset
+                                                ?.isPositivePriceChangepercentage ??
+                                            false
+                                        ? success600
+                                        : error600,
+                                    textAlign: TextAlign.right,
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
+                              const Gap(16),
+                              const TextUi.caption(
+                                'Available Balance',
+                                color: grayScale100,
+                              ),
+                              const Gap(8),
+                              Row(
+                                children: [
+                                  TextUi.body1(
+                                    "${controller.wallet?.cryptoBalance ?? '0.0'}",
+                                    fontWeight: mediumText,
+                                  ),
+                                  const Gap(2),
+                                  const TextUi.body1(
+                                    'USDT',
+                                    color: grayScale200,
+                                  ),
+                                ],
+                              ),
+                              const Gap(4),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const TextUi.body1(
+                                    '≈',
+                                    color: secondary600,
+                                  ),
+                                  const Gap(4),
+                                  const NairaIconUi(
+                                    size: 15,
+                                    color: grayScale200,
+                                  ).paddingOnly(top: 2),
+                                  TextUi.body1(
+                                    controller.wallet?.fiatBalance.toString() ??
+                                        '0.0',
+                                    fontWeight: mediumText,
+                                    textAlign: TextAlign.right,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      const Gap(16),
-                      Padding(
-                        padding: baseViewPadding.w,
-                        child: Row(
+                        const Gap(24),
+                        Row(
                           children: [
                             Expanded(
                               child: PrimaryButtonUi(
@@ -151,7 +149,7 @@ class WalletDetailsUi extends GetView<WalletDetailsController> {
                                     color: grayScale50,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: controller.openReceiveAssetModal,
                               ),
                             ),
                             const Gap(20),
@@ -172,13 +170,18 @@ class WalletDetailsUi extends GetView<WalletDetailsController> {
                                     color: grayScale50,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: controller.openSendAssetModal,
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        const Gap(24),
+                        const TextUi.body2(
+                          'Recent Transactions',
+                          color: grayScale200,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

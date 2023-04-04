@@ -32,94 +32,7 @@ class OverviewUi extends GetView<OverviewController> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           const Gap(24),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 20,
-                            ).r,
-                            decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.all(
-                                smallRadius,
-                              ),
-                              gradient: const LinearGradient(
-                                colors: [
-                                  Color(0xFF5c369b),
-                                  Color(0xFF2c3489),
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              ),
-                              boxShadow: <BoxShadow>[
-                                BoxShadow(
-                                  color: black.withOpacity(.1),
-                                  blurRadius: 4,
-                                  offset: const Offset(0, 1),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const TextUi.caption(
-                                  'Total available balance',
-                                  color: grayScale200,
-                                  fontWeight: mediumText,
-                                ),
-                                const Gap(4),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
-                                    NairaIconUi(
-                                      size: 20,
-                                    ),
-                                    TextUi.title2(
-                                      '0.00',
-                                      fontWeight: mediumText,
-                                    ),
-                                  ],
-                                ),
-                                const Gap(8),
-                                GestureDetector(
-                                  behavior: HitTestBehavior.translucent,
-                                  onTap: () {
-                                    //show dropdown
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 12,
-                                      vertical: 4,
-                                    ).r,
-                                    decoration: ShapeDecoration(
-                                      color: grayScale50.withOpacity(.1),
-                                      shape: const StadiumBorder(),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        SvgPicture.asset(
-                                          nigerianFlagIcon,
-                                          height: 12.w,
-                                          width: 24.w,
-                                        ),
-                                        const Gap(4),
-                                        TextUi.caption(
-                                          'NGN',
-                                          color: black,
-                                          fontWeight: mediumText,
-                                          height: (16 / 12).w,
-                                        ),
-                                        Icon(
-                                          Icons.keyboard_arrow_down_rounded,
-                                          size: 16.w,
-                                          color: secondary600,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          const TotalBalanceCardUi(),
                           const Gap(16),
                           Row(
                             children: [
@@ -197,6 +110,104 @@ class OverviewUi extends GetView<OverviewController> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class TotalBalanceCardUi extends StatelessWidget {
+  const TotalBalanceCardUi({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 20,
+      ).r,
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(
+          smallRadius,
+        ),
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFF5c369b),
+            Color(0xFF2c3489),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: black.withOpacity(.1),
+            blurRadius: 4,
+            offset: const Offset(0, 1),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const TextUi.caption(
+            'Total available balance',
+            color: grayScale200,
+            fontWeight: mediumText,
+          ),
+          const Gap(4),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              NairaIconUi(
+                size: 20,
+              ),
+              TextUi.title2(
+                '0.00',
+                fontWeight: mediumText,
+              ),
+            ],
+          ),
+          const Gap(8),
+          GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              //show dropdown
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 4,
+              ).r,
+              decoration: ShapeDecoration(
+                color: grayScale50.withOpacity(.1),
+                shape: const StadiumBorder(),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SvgPicture.asset(
+                    nigerianFlagIcon,
+                    height: 12.w,
+                    width: 24.w,
+                  ),
+                  const Gap(4),
+                  TextUi.caption(
+                    'NGN',
+                    color: black,
+                    fontWeight: mediumText,
+                    height: (16 / 12).w,
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    size: 16.w,
+                    color: secondary600,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

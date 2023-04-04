@@ -41,7 +41,7 @@ class PortfolioController extends BaseController {
         //create wallet instance
         final wallet = WalletDto(
           privateKey: privateKey,
-          publicKey: publicKey.toString(),
+          address: publicKey.toString(),
           asset: asset,
         );
 

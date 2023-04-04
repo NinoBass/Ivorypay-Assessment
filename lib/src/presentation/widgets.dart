@@ -9,6 +9,7 @@ export './global_widgets/nav_bar_indicator.ui.dart';
 export './global_widgets/nav_bar_item.ui.dart';
 export './global_widgets/network_image.ui.dart';
 export './global_widgets/skeleton_container.ui.dart';
+export './global_widgets/tab_selector.ui.dart';
 export './global_widgets/text.ui.dart';
 export './global_widgets/user_avatar.ui.dart';
 export './global_widgets/wallet_tile.ui.dart';
