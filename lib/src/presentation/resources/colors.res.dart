@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 ///Primary color and it's variants
 const primary600 = Color(0xFF3D358E);
 const primary800 = Color(0xFF2C3489);
-const primary900 = Color.fromARGB(255, 2, 0, 32);
+const primary900 = Color.fromARGB(255, 9, 8, 30);
 
 ///Secondary color and it's variants
 const secondary600 = Color(0xFFCC9933);

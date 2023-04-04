@@ -101,7 +101,7 @@ class OnboardingUi extends GetView<OnboardingController> {
                               child: FadeInLeft(
                                 delay: fastDuration,
                                 child: const TextUi.body2(
-                                  'Swipe to Get started',
+                                  'Swipe to get started',
                                 ),
                               ),
                             );

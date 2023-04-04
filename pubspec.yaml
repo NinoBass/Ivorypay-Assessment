@@ -13,6 +13,7 @@ dependencies:
   bip39: ^1.0.6
   chart_sparkline: ^1.0.13
   clock: ^1.1.1
+  collection: ^1.17.0
   cupertino_icons: ^1.0.2
   dio: ^5.1.1
   dio_cache_interceptor: ^3.4.1

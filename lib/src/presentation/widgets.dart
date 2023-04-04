@@ -8,6 +8,7 @@ export './global_widgets/naira_icon.ui.dart';
 export './global_widgets/nav_bar_indicator.ui.dart';
 export './global_widgets/nav_bar_item.ui.dart';
 export './global_widgets/network_image.ui.dart';
+export './global_widgets/quick_action_tile.ui.dart';
 export './global_widgets/skeleton_container.ui.dart';
 export './global_widgets/tab_selector.ui.dart';
 export './global_widgets/text.ui.dart';
