@@ -31,6 +31,7 @@ dependencies:
   path_provider: ^2.0.14
   qr_flutter: ^4.0.0
   responsive_framework: ^0.2.0
+  share_plus: ^6.3.1
   shimmer: ^2.0.0
   slide_to_act: ^2.0.1
   ternav_icons: ^1.0.0

@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 import 'package:ivorypay/src/modules/dashboard/portfolio/wallet_details/controller/wallet_details.controller.dart';
 import 'package:ivorypay/src/presentation/global_widgets/modal.ui.dart';
 import 'package:ivorypay/src/presentation/resources/res.dart';
+import 'package:ivorypay/src/presentation/utility/ui_helpers.utils.dart';
 import 'package:ivorypay/src/presentation/widgets.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ReceiveCryptoModalUi extends GetView<WalletDetailsController> {
   const ReceiveCryptoModalUi({
@@ -62,13 +64,19 @@ class ReceiveCryptoModalUi extends GetView<WalletDetailsController> {
           const Gap(24),
           PrimaryButtonUi(
             text: 'Copy Wallet Address',
-            onPressed: () {},
+            onPressed: () {
+              copyToClipboard(
+                text: controller.wallet?.address ?? '',
+              );
+            },
           ),
           const Gap(12),
           PrimaryButtonUi(
             text: 'Share Address',
             backgroundColor: secondary600,
-            onPressed: () {},
+            onPressed: () {
+              Share.share(controller.wallet?.address ?? '');
+            },
           ),
         ],
       ),

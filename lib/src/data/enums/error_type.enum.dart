@@ -3,12 +3,12 @@ import 'package:ivorypay/src/presentation/resources/res.dart';
 
 enum ErrorType {
   success(
-    backgroundColor: success50,
+    backgroundColor: success900,
     color: success600,
     icon: circleCheckIcon,
   ),
   failed(
-    backgroundColor: error50,
+    backgroundColor: error900,
     color: error600,
     icon: circleErrorIcon,
   );
