@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ivorypay/src/modules/dashboard/portfolio/wallet_details/controller/wallet_details.controller.dart';
+import 'package:ivorypay/src/data/dto/dto.dart';
 import 'package:ivorypay/src/presentation/global_widgets/modal.ui.dart';
 import 'package:ivorypay/src/presentation/resources/res.dart';
 import 'package:ivorypay/src/presentation/utility/ui_helpers.utils.dart';
@@ -9,13 +9,12 @@ import 'package:ivorypay/src/presentation/widgets.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
-class ReceiveCryptoModalUi extends GetView<WalletDetailsController> {
+class ReceiveCryptoModalUi extends StatelessWidget {
   const ReceiveCryptoModalUi({
     super.key,
+    required this.wallet,
   });
-
-  @override
-  WalletDetailsController get controller => Get.put(WalletDetailsController());
+  final WalletDto wallet;
 
   @override
   Widget build(BuildContext context) {
@@ -46,19 +45,19 @@ class ReceiveCryptoModalUi extends GetView<WalletDetailsController> {
             aspectRatio: 1.8,
             child: Center(
               child: QrImage(
-                data: controller.wallet?.address ?? '',
+                data: wallet.address,
                 foregroundColor: white,
               ),
             ),
           ),
           const Gap(24),
           TextUi.caption(
-            '${controller.wallet?.asset?.symbol} Wallet Address',
+            '${wallet.asset?.symbol} Wallet Address',
             color: grayScale200,
           ),
           const Gap(8),
           TextUi.body2(
-            controller.wallet?.address ?? 'Empty',
+            wallet.address,
             fontWeight: mediumText,
           ),
           const Gap(24),
@@ -66,7 +65,7 @@ class ReceiveCryptoModalUi extends GetView<WalletDetailsController> {
             text: 'Copy Wallet Address',
             onPressed: () {
               copyToClipboard(
-                text: controller.wallet?.address ?? '',
+                text: wallet.address,
               );
             },
           ),
@@ -75,7 +74,7 @@ class ReceiveCryptoModalUi extends GetView<WalletDetailsController> {
             text: 'Share Address',
             backgroundColor: secondary600,
             onPressed: () {
-              Share.share(controller.wallet?.address ?? '');
+              Share.share(wallet.address);
             },
           ),
         ],

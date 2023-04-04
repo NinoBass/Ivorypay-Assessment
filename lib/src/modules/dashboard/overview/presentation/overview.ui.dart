@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:ivorypay/src/data/enums/wallet_action.enum.dart';
 import 'package:ivorypay/src/modules/dashboard/overview/controller/overview.controller.dart';
 import 'package:ivorypay/src/modules/dashboard/overview/presentation/widgets/header.ui.dart';
 import 'package:ivorypay/src/modules/dashboard/overview/presentation/widgets/quick_actions_section.ui.dart';
@@ -54,7 +55,11 @@ class OverviewUi extends GetView<OverviewController> {
                                       color: grayScale50,
                                     ),
                                   ),
-                                  onPressed: controller.openSelectAssetModal,
+                                  onPressed: () {
+                                    controller.openSelectAssetModal(
+                                      WalletAction.receive,
+                                    );
+                                  },
                                 ),
                               ),
                               const Gap(20),
@@ -75,7 +80,11 @@ class OverviewUi extends GetView<OverviewController> {
                                       color: grayScale50,
                                     ),
                                   ),
-                                  onPressed: controller.openSelectAssetModal,
+                                  onPressed: () {
+                                    controller.openSelectAssetModal(
+                                      WalletAction.send,
+                                    );
+                                  },
                                 ),
                               ),
                             ],

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:ivorypay/src/data/dto/dto.dart';
+import 'package:ivorypay/src/data/enums/wallet_action.enum.dart';
 import 'package:ivorypay/src/domain/services/navigation.services.dart';
+import 'package:ivorypay/src/modules/dashboard/portfolio/wallet_details/presentation/widgets/receive_crypto_modal.ui.dart';
 import 'package:ivorypay/src/presentation/resources/res.dart';
 import 'package:ivorypay/src/presentation/widgets.dart';
 import 'package:ivorypay/src/routing/app_pages.dart';
@@ -12,18 +14,34 @@ class WalletTileUi extends StatelessWidget {
   const WalletTileUi({
     super.key,
     required this.wallet,
+    required this.action,
   });
 
+  final WalletAction action;
   final WalletDto wallet;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //open detail page
-        navigationService.navigateTo(
-          Routes.walletDetails,
-          arguments: wallet,
-        );
+        if (action.isViewDetails) {
+          //open detail page
+          navigationService.navigateTo(
+            Routes.walletDetails,
+            arguments: wallet,
+          );
+        } else if (action.isReceiveCrypto) {
+          if (Get.isOverlaysOpen) {
+            Get.back<void>();
+          }
+          Get.bottomSheet<void>(
+            ReceiveCryptoModalUi(
+              wallet: wallet,
+            ),
+            isScrollControlled: true,
+          );
+        } else if (action.isSendCrypto) {
+          //open send page
+        }
       },
       child: Container(
         padding: const EdgeInsets.all(8).r,

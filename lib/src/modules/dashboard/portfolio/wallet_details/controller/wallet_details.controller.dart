@@ -16,7 +16,9 @@ class WalletDetailsController extends BaseController {
 
   void openReceiveAssetModal() {
     Get.bottomSheet<void>(
-      const ReceiveCryptoModalUi(),
+      ReceiveCryptoModalUi(
+        wallet: wallet!,
+      ),
       isScrollControlled: true,
     );
   }

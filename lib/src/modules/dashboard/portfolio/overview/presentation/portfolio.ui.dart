@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ivorypay/src/data/enums/wallet_action.enum.dart';
 import 'package:ivorypay/src/modules/dashboard/portfolio/overview/controller/portfolio.controller.dart';
 import 'package:ivorypay/src/modules/dashboard/portfolio/overview/presentation/widgets/empty_portfolio_state.ui.dart';
 import 'package:ivorypay/src/modules/dashboard/portfolio/overview/presentation/widgets/header.ui.dart';
@@ -53,6 +54,7 @@ class PortfolioUi extends GetView<PortfolioController> {
                               ...controller.wallets.map((wallet) {
                                 return WalletTileUi(
                                   wallet: wallet,
+                                  action: WalletAction.viewDetails,
                                 );
                               })
                             ],
